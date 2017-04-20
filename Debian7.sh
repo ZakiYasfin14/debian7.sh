@@ -146,6 +146,7 @@ apt-get -y install dropbear
 sed -i 's/NO_START=1/NO_START=0/g' /etc/default/dropbear
 sed -i 's/DROPBEAR_PORT=22/DROPBEAR_PORT=443/g' /etc/default/dropbear
 sed -i 's/DROPBEAR_EXTRA_ARGS=/DROPBEAR_EXTRA_ARGS=""/g' /etc/default/dropbear
+sed -i 's/#Banner/Banner/g' /etc/default/dropbear
 echo "/bin/false" >> /etc/shells
 echo "/usr/sbin/nologin" >> /etc/shells
 service ssh restart
@@ -205,7 +206,7 @@ wget -O userexpired.sh "https://raw.github.com/yurisshOS/debian7os/master/userex
 #wget -O userlimit.sh "https://raw.github.com/yurisshOS/debian7os/master/userlimit.sh"
 wget -O expire.sh "https://raw.github.com/yurisshOS/debian7os/master/expire.sh"
 #wget -O autokill.sh "https://raw.github.com/yurisshOS/debian7os/master/autokill.sh"
-wget -O /etc/issue.net "https://raw.github.com/yurisshOS/debian7os/master/banner"
+wget -O /etc/issue.net "https://raw.githubusercontent.com/ZakiYasfin14/debian7.sh/master/banner"
 echo "@reboot root /root/userexpired.sh" > /etc/cron.d/userexpired
 #echo "@reboot root /root/userlimit.sh" > /etc/cron.d/userlimit
 echo "0 */6 * * * root /sbin/reboot" > /etc/cron.d/reboot
